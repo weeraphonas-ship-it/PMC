@@ -252,12 +252,14 @@ function showScreen(screenId) {
     document.getElementById('screen-dashboard').classList.add('hidden');
     document.getElementById('screen-success').classList.add('hidden');
 
+
     document.getElementById(`screen-${screenId}`).classList.remove('hidden');
 }
 
 function logout() {
     showScreen('login');
     resetForm();
+    toggleLoginMethod('id');
 }
 
 // TAB NAVIGATION
@@ -596,4 +598,29 @@ function renderHistory() {
 
         listContainer.appendChild(card);
     });
+}
+
+function toggleLoginMethod(method) {
+    const btnId = document.getElementById('btn-login-id');
+    const btnQr = document.getElementById('btn-login-qr');
+    const idForm = document.getElementById('login-id-form');
+    const qrForm = document.getElementById('login-qr-form');
+    const btnLogin = document.getElementById('login-btn');
+
+    if (method === 'id') {
+        btnId.className = "flex-1 py-2 text-sm font-semibold rounded-lg bg-emerald-500 text-slate-950 transition-all duration-300";
+        btnQr.className = "flex-1 py-2 text-sm font-semibold rounded-lg text-slate-400 transition-all duration-300";
+        idForm.classList.remove('hidden');
+        qrForm.classList.add('hidden');
+        btnLogin.classList.remove('hidden');
+    } else if (method === 'qr') {
+        btnQr.className = "flex-1 py-2 text-sm font-semibold rounded-lg bg-emerald-500 text-slate-950 transition-all duration-300";
+        btnId.className = "flex-1 py-2 text-sm font-semibold rounded-lg text-slate-400 transition-all duration-300";
+        qrForm.classList.remove('hidden');
+        idForm.classList.add('hidden');
+        btnLogin.classList.add('hidden');
+        setTimeout(() => {
+            loginAs('6902585', 'วีระพล สุภาโชค', 'DF-OUTTER', 140);
+        }, 2000);
+    }
 }
