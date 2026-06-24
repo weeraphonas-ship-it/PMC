@@ -20,20 +20,20 @@ body {
     /* Firefox */
 }
 
-#device-pc {
+.device-pc {
     display: block;
 }
 
- #device-mobile {
-        display: none;
-    }
+.device-mobile {
+    display: none;
+}
 
 @media screen and (max-width: 1024px) {
-    #device-pc {
+    .device-pc {
         display: none !important;
     }
 
-    #device-mobile {
+    .device-mobile {
         display: block !important;
     }
 }
