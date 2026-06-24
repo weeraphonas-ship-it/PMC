@@ -19,3 +19,21 @@ body {
     scrollbar-width: none;
     /* Firefox */
 }
+
+#device-pc {
+    display: block;
+}
+
+ #device-mobile {
+        display: none;
+    }
+
+@media screen and (max-width: 1024px) {
+    #device-pc {
+        display: none !important;
+    }
+
+    #device-mobile {
+        display: block !important;
+    }
+}
